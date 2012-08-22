@@ -38,6 +38,11 @@ def turn_to_markdown
   File.open("README.md", "w+") do |f|
     f.write("Medivo Glossary\n")
     f.write("===============")
+    csv.each do |column|
+      if column != csv[0]
+        f.write("- *column[0]*...........column[1]")
+      end
+    end
   end
 end
 
