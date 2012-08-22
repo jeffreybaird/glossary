@@ -1,8 +1,8 @@
-require 'rubygems'
-require 'httparty'
-require 'oauth2'
-require 'fileutils'
-require 'tempfile'
+# require 'rubygems'
+# require 'httparty'
+# require 'oauth2'
+# require 'fileutils'
+# require 'tempfile'
 
 #https://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=0AsAb9hApGR2qdFh6VlpQeFhGQ2R1d0dNWjI5SjVzVnc&exportFormat=csv
 #So I didn't want to take the time to worry about authenticating into google. Just cp the above link into the browser and navigate to the home directory
