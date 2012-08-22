@@ -37,7 +37,7 @@ def turn_to_markdown
   %x[touch README.md] unless File.exist?("README.md")
   File.open("README.md", "w+") do |f|
     f.write("Medivo Glossary\n")
-    f.write("===============")
+    f.write("===============\n")
     csv.each do |column|
       if column != csv[0]
         f.write("- *column[0]*...........column[1]")
