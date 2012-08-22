@@ -1,5 +1,7 @@
 Medivo Glossary
 ===============
+- **Term**...........Definition
+
 - **Disease**...........
 
 - **Program**...........
