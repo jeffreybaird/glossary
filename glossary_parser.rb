@@ -40,7 +40,7 @@ def turn_to_markdown
     f.write("===============\n")
     csv.each do |column|
       if column != csv[0]
-        f.write("- *column[0]*...........column[1]")
+        f.write("- *column[0]*...........column[1]\n")
       end
     end
   end
