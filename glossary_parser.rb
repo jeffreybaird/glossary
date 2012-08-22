@@ -32,6 +32,15 @@ def turn_array_to_html
   end
 end
 
+def turn_to_markdown
+  csv = csv_to_arrays("../../Downloads/Glossary.csv")
+  %x[touch README.md] unless File.exist?("README.md")
+  File.open("README.md", "w+") do |f|
+    f.write("Medivo Glossary\n")
+    f.write("===============")
+  end
+end
+
 def push_to_github
   system("git add .")
   system("git commit -m #{rand(0..1098)}")
@@ -42,4 +51,5 @@ end
 
 
 turn_array_to_html
+turn_to_markdown
 push_to_github
