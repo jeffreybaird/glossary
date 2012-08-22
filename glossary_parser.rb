@@ -20,7 +20,7 @@ end
 def turn_array_to_html
   csv = csv_to_arrays("../../Downloads/Glossary.csv")
   %x[touch glossary.html] unless File.exist?("glossary.html")
-  File.open("../glossary.html", 'w+') do |f|
+  File.open("glossary.html", 'w+') do |f|
   	f.write("<html>\n<body>\n<table border='1'>\n<tr>")
   	f.write("\n<th> #{csv[0][0]}</th>\n<th>#{csv[0][1]}</th>\n</tr>")
     csv.each do |column|
