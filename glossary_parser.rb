@@ -38,7 +38,7 @@ def turn_to_markdown
   File.open("README.md", "w+") do |f|
     f.write("Medivo Glossary\n")
     f.write("===============\n")
-    f.write("**#{csv[0][0].upcase}**--------------------- **#{csv[0][1].upcase}** \n")
+    f.write("**#{csv[0][0].upcase}**--------------------- **#{csv[0][1].strip.upcase}** \n")
     csv.each do |column|
       if column != csv[0]
         f.write("- **#{column[0]}**...........#{column[1]}\n")
