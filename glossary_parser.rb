@@ -1,11 +1,7 @@
-# require 'rubygems'
-# require 'httparty'
-# require 'oauth2'
-# require 'fileutils'
-# require 'tempfile'
-
 #https://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=0AsAb9hApGR2qdFh6VlpQeFhGQ2R1d0dNWjI5SjVzVnc&exportFormat=csv
-#So I didn't want to take the time to worry about authenticating into google. Just cp the above link into the browser and navigate to the home directory
+#So I didn't want to take the time to worry about authenticating into google. 
+#Just cp the above link into the browser and navigate to the glossary directory associated with the remote directory
+#this assumes that your download goes to the download file.
 def csv_to_arrays filename
 	File.open(filename,'r+') do |f|
 	  rows = []
@@ -17,8 +13,8 @@ def csv_to_arrays filename
 	end
 end
 
-def turn_array_to_html
-  csv = csv_to_arrays("../../Downloads/Glossary.csv")
+def turn_array_to_html filename
+  csv = csv_to_arrays filename
   %x[touch glossary.html] unless File.exist?("glossary.html")
   File.open("glossary.html", 'w+') do |f|
   	f.write("<html>\n<body>\n<table border='1'>\n<tr>")
@@ -32,8 +28,8 @@ def turn_array_to_html
   end
 end
 
-def turn_to_markdown
-  csv = csv_to_arrays("../../Downloads/Glossary.csv")
+def turn_to_markdown filename
+  csv = csv_to_arrays filename
   %x[touch README.md] unless File.exist?("README.md")
   File.open("README.md", "w+") do |f|
     f.write("Medivo Glossary\n")
@@ -56,6 +52,6 @@ end
 
 
 
-turn_array_to_html
-turn_to_markdown
+turn_array_to_html("../../Downloads/Glossary.csv")  #change this to appropriate filepath
+turn_to_markdown("../../Downloads/Glossary.csv") #change this to appropriate filepath
 push_to_github
